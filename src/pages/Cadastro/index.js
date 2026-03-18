@@ -10,7 +10,7 @@ export default function Cadastro(){
   return(
 
     <View style={styles.container}> 
-        <Text>Hello world</Text>
+        <Text>AIAIIAI</Text>
         <StatusBar style="auto"/>
     </View>
   );
