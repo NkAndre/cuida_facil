@@ -27,5 +27,32 @@ export default StyleSheet.create({
         paddingLeft:190,
         height:'auto',
         width:'auto'
-      }
+      },
+
+      viewBotoes:{
+        flex: 1,
+        marginTop: 70,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        padding:25,
+        
+      },
+      txtTitle:{
+        fontWeight: 'bold',
+        
+
+      },
+
+      viewBotao:{
+        width: 100,
+        height: 100,
+        margin: 10,
+        borderRadius: '10%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#87CEFA',
+      },
 });
