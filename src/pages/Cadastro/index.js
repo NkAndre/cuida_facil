@@ -109,5 +109,9 @@ export default function Cadastro(){
         </Pressable>
       </View>
     </KeyboardAvoidingView>
+    <View style={styles.container}> 
+        <Text>Hello world</Text>
+        <StatusBar style="auto"/>
+    </View>
   );
 }
