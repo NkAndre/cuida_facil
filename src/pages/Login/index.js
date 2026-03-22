@@ -75,7 +75,7 @@ export default function Login() {
         </Text>
 
         {/* Botãonnn Entrar */}
-        <Pressable onPress={() => navigation.navigate('Cadastro')}
+        <Pressable onPress={() => navigation.navigate('Home')}
           style={styles.button} >
           <Text style={styles.buttonText}>Entrar</Text>
         </Pressable>
