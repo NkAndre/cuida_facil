@@ -7,6 +7,8 @@ import Home from './src/pages/Home';
 import Cadastro from './src/pages/Cadastro';
 import Splash from './src/pages/Splash';
 
+import Vacinas from './src/pages/Vacinas';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -16,12 +18,13 @@ export default function App() {
 
            <Stack.Screen name='Login' component={Login} />
 
-       
+       <Stack.Screen name="Vacinas" component={Vacinas} />
      
         <Stack.Screen name='Home' component={Home} />
         <Stack.Screen name='Cadastro' component={Cadastro} />
 
          <Stack.Screen name='Splash' component={Splash} />
+         
       </Stack.Navigator>
     </NavigationContainer>
   );
