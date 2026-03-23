@@ -25,10 +25,9 @@ export default function Home() {
 
         <View style={styles.iconeLogout}>
 
-          <Pressable onPress={() => navigation.navigate('Login')}>
-            <Feather name="log-out" size={24} color="white" />
+          <Pressable style={styles.btnLogout} onPress={() => navigation.navigate('Login')}>
+            <Feather name="log-out" size={22} color="white" />
           </Pressable>
-
         </View>
       </View>
 
