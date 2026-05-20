@@ -1,0 +1,247 @@
+import { StyleSheet } from "react-native";
+
+export default StyleSheet.create({
+  container: {
+    flex: 1, 
+    backgroundColor: '#fff', 
+  },
+  // HEADER
+  header: {
+    backgroundColor: "#4A90D9",
+    paddingTop: 50,
+    paddingBottom: 16,
+    paddingHorizontal: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  headerContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+  headerLogo: {
+    width: 32,
+    height: 32,
+  },
+  headerText: {
+    color: "white",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  btnLogout: {
+    padding: 6,
+  },
+  viewBotao: {
+    alignItems: 'center',
+    marginTop: 25,
+    marginBottom: 20, 
+  },
+  botao: {
+    backgroundColor: '#4A90E2',
+    width: '90%',
+    height: 55,
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+  },
+  botaoTexto: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  avatarContainer: {
+    alignSelf: 'center',
+    position: 'relative', 
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imagem: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    alignSelf: 'center',
+  },
+  cameraIconContainer: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 6,
+    elevation: 3,
+  },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.55)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  viewModal: {
+    backgroundColor: '#fff',
+    padding: 28,
+    paddingBottom: 20,
+    borderRadius: 24,
+    width: '88%',
+    gap: 10,
+  },
+  modalTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#111',
+    marginBottom: 2,
+  },
+  modalSubtitle: {
+    fontSize: 13,
+    color: '#888',
+    marginBottom: 14,
+  },
+  inputModal: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderRadius: 14,
+    borderWidth: 0.5,
+    borderColor: '#ddd',
+    backgroundColor: '#fff',
+  },
+  modalIconBox: {
+    width: 42,
+    height: 42,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalIconBoxCamera: {
+    backgroundColor: '#E6F1FB',
+  },
+  modalIconBoxGaleria: {
+    backgroundColor: '#EAF3DE',
+  },
+  buttonModalText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#111',
+  },
+  modalCancelButton: {
+    paddingVertical: 13,
+    borderRadius: 14,
+    borderWidth: 0.5,
+    borderColor: '#ddd',
+    backgroundColor: '#f5f5f5',
+    alignItems: 'center',
+    marginTop: 4,
+  },
+  modalCancelText: {
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#666',
+  },
+  inputArea: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F0F8FF', 
+    width: '90%',               
+    height: 55,
+    borderRadius: 15,
+    marginTop: 15, 
+    alignSelf: 'center',        
+    paddingHorizontal: 15,
+    elevation: 2,               
+  },
+  input: {
+    flex: 1,
+    height: '100%',
+    fontSize: 16,
+    color: '#333',
+  },
+  
+  // NOVOS ESTADOS ADICIONADOS DO MODAL DE CONFIRMAÇÃO, SUCESSO E CARD DA LISTA
+  modalConfirmContent: {
+    alignItems: 'center',
+  },
+  modalConfirmImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    marginBottom: 15,
+  },
+  modalConfirmDataBox: {
+    width: '100%',
+    marginBottom: 20,
+    gap: 6,
+  },
+  modalConfirmText: {
+    fontSize: 15,
+    color: '#333',
+  },
+  modalConfirmLabel: {
+    fontWeight: 'bold',
+  },
+  modalConfirmButtonsRow: {
+    flexDirection: 'row',
+    gap: 10,
+    width: '100%',
+  },
+  modalConfirmBtnFlex: {
+    flex: 1,
+    marginTop: 0,
+  },
+  modalConfirmBtnSalvar: {
+    flex: 1,
+    height: 'auto',
+    paddingVertical: 12,
+    borderRadius: 14,
+    width: 'auto',
+  },
+  modalSucessoBox: {
+    alignItems: 'center',
+    width: '70%',
+    padding: 30,
+  },
+  modalSucessoIconCircle: {
+    backgroundColor: '#EAF3DE',
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 15,
+  },
+  cardRemedio: {
+    flexDirection: 'row',
+    backgroundColor: '#F0F8FF',
+    padding: 12,
+    borderRadius: 12,
+    marginTop: 10,
+    alignItems: 'center',
+    elevation: 1,
+  },
+  cardRemedioImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 15,
+  },
+  cardRemedioInfo: {
+    flex: 1,
+  },
+  cardRemedioNome: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  cardRemedioDetalhes: {
+    fontSize: 13,
+    color: '#666',
+  },
+  cardRemedioBtnDelete: {
+    padding: 5,
+  },
+});
