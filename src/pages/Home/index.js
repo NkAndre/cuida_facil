@@ -69,7 +69,7 @@ export default function Home() {
               style={{ width: 50, height: 50 }}
               resizeMode="contain"
             />
-            <Text style={styles.txtTitle}>Água</Text>
+            <Text style={styles.txtTitle}>Àgua</Text>
           </Pressable>
         </View>
 
