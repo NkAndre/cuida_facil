@@ -14,10 +14,10 @@ Aplicattivo de monitoramento para a saúde pessoal
   <img src="https://github.com/user-attachments/assets/77cfe6cd-243f-4025-bb7a-29f54d50b39e" width="250"/>
 </p>
 
-## Teconlogias Utilizadas
+## Tecnlogias Utilizadas
 
 <p align="left">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=react,laravel,mySql" />
+    <img src="https://skillicons.dev/icons?i=react,laravel,mysql" />
   </a>
 </p>
