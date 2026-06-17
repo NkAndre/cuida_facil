@@ -53,7 +53,7 @@ Meu Objetivo é Oferecer uma solução prática para que usuários possam acompa
 ## Preview 📸
 
 <p align="center">
-  <img width="368" height="813" alt="image" src="https://github.com/user-attachments/assets/81ae6a5e-bad3-4f0c-b447-02c8821c5210" />
+  <img width="250"  alt="image" src="https://github.com/user-attachments/assets/81ae6a5e-bad3-4f0c-b447-02c8821c5210" />
 
   <img src="https://github.com/user-attachments/assets/fec5492e-8a05-4415-895a-516b1c2d6621" width="250"/>
 
