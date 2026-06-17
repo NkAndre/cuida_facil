@@ -7,9 +7,27 @@ Aplicattivo de monitoramento para a saúde pessoal
 O Cuida Fácil é um aplicativo de monitoramento de saúde pessoal desenvolvido para auxiliar usuários no acompanhamento de informações importantes do dia a dia. A plataforma centraliza registros de saúde em um único ambiente, promovendo organização, prevenção e qualidade de vida.
 
 Com uma interface simples e intuitiva, o aplicativo permite registrar e acompanhar indicadores de saúde, medicamentos, exames e hábitos saudáveis, facilitando o controle das informações médicas pessoais.
+--
 
+## Funcionalidades
 
+Aplicativo contém 19 Telas Atualmente.
 
+- 💧 Controle diário de consumo de água
+- 💊 Gerenciamento de medicamentos e horários
+- 🦠 Cadastro de alergias
+- 🩸 Monitoramento da glicemia
+- 🩺 Controle da pressão arterial
+- ⚖️ Cálculo automático do IMC
+- 🧘 Área de meditação e bem-estar
+- 🥗 Planejamento alimentar
+- 💡 Mensagens motivacionais dinânmicas com opção de compartilhamento
+- 🚨 Informações Sobre Ubs mais próxima e contatos de emergência 
+
+--
+
+## 🎯 Objetivo
+Meu Objetivo é Oferecer uma solução prática para que usuários possam acompanhar sua saúde de forma organizada, armazenando informações importantes e incentivando hábitos saudáveis por meio de ferramentas de monitoramento e prevenção.
 
 
 ## Tecnlogias Utilizadas
