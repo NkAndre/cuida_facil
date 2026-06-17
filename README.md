@@ -16,6 +16,8 @@ Aplicattivo de monitoramento para a saúde pessoal
 
 ## Teconlogias Utilizadas
 
+<p align =  "center">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="React Native" />
 
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="Laravel" />
+</p>
