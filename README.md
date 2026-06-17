@@ -1,2 +1,2 @@
 # cuida-facil
-App em react native desenvolvido durante as aulas de Pam II
+Aplicattivo de monitoramento para a saúde pessoal 
