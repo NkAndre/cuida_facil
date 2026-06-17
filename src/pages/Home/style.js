@@ -108,4 +108,9 @@ rightIcons: {
     alignItems: 'center',
     backgroundColor: '#87CEFA',
   },
+  viewPin:{
+    position:'absolute',
+    alignSelf:'center',
+    bottom:50
+  }
 });

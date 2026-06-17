@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
   scroll: {
     paddingBottom: 40,
   },
+  listContainer: {
+    paddingBottom: 30,
+  },
   loading: {
     marginTop: 60,
   },
@@ -38,6 +41,45 @@ const styles = StyleSheet.create({
   },
   btnLogout: {
     padding: 6,
+  },
+
+  // FORMULÁRIO (Adicionado para funcionar com os inputs de Peso e Altura)
+  formContainer: {
+    padding: 20,
+    backgroundColor: "white",
+    marginHorizontal: 20,
+    marginTop: 24,
+    borderRadius: 14,
+    borderWidth: 0.5,
+    borderColor: "#ddd",
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#555",
+    marginBottom: 6,
+  },
+  input: {
+    backgroundColor: "#f9f9f9",
+    borderWidth: 1,
+    borderColor: "#e3e3e3",
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 16,
+    fontSize: 16,
+    color: "#333",
+  },
+  button: {
+    backgroundColor: "#4A90D9",
+    padding: 14,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 4,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
   },
 
   // RESULTADO

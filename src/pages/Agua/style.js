@@ -12,28 +12,29 @@ const styles = StyleSheet.create({
 
   // HEADER
   header: {
-    backgroundColor: '#4A90E2',
+    backgroundColor: "#4A90E2",
     paddingTop: 50,
     paddingBottom: 20,
     paddingHorizontal: 25,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     elevation: 8,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
   },
   headerContent: {
-    flexDirection: 'row', alignItems:
-      'center'
+    flexDirection: "row",
+    alignItems: "center",
   },
   headerLogo: {
-    width: 45, height: 45,
-    marginRight: 12
+    width: 45,
+    height: 45,
+    marginRight: 12,
   },
   headerText: {
     color: "white",
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
   },
 
   // IMAGEM DO COPO
-  view: {
+  viewCopo: {
     alignItems: "center",
     marginVertical: 20,
   },
@@ -54,30 +55,40 @@ const styles = StyleSheet.create({
     height: 120,
   },
 
-  // CARDS DA LISTA
-  cardAlergia: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
-    marginHorizontal: 20,
-    marginBottom: 10,
-    borderRadius: 10,
-    padding: 14,
-    borderLeftWidth: 4,
-    borderLeftColor: "#4A90D9",
+  // RESUMO
+  resumoArea: {
+    paddingHorizontal: 20,
+    marginBottom: 16,
   },
-  textoCard: {
-    fontSize: 16,
+  totalTexto: {
+    fontSize: 28,
     fontWeight: "bold",
-    color: "#333",
+    color: "#4A90D9",
+    textAlign: "center",
   },
-  textoNivel: {
-    fontSize: 13,
+  metaTexto: {
+    textAlign: "center",
     color: "#888",
-    marginTop: 2,
+    marginBottom: 10,
+  },
+  barraFundo: {
+    height: 12,
+    backgroundColor: "#ddd",
+    borderRadius: 6,
+    overflow: "hidden",
+  },
+  barraProgresso: {
+    height: 12,
+    borderRadius: 6,
+  },
+  metaAtingida: {
+    textAlign: "center",
+    color: "#27ae60",
+    marginTop: 8,
+    fontWeight: "bold",
   },
 
-  // BOTÃO
+  // BOTÕES
   viewBotao: {
     paddingHorizontal: 20,
     marginBottom: 10,
@@ -94,13 +105,33 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 
-  // TÍTULO DA LISTA
+  // LISTA
+  listaConteudo: {
+    paddingBottom: 30,
+  },
+  textoVazio: {
+    textAlign: "center",
+    color: "#aaa",
+    marginTop: 10,
+  },
+  cabecalhoLista: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    alignItems: "center",
+    marginTop: 16,
+  },
   tituloLista: {
     fontSize: 16,
     fontWeight: "bold",
     color: "#333",
   },
+  limparTexto: {
+    color: "#cc0000",
+    fontSize: 13,
+  },
 
+  // CARD
   cardAgua: {
     flexDirection: "row",
     alignItems: "center",
@@ -112,66 +143,67 @@ const styles = StyleSheet.create({
     borderLeftWidth: 4,
     borderLeftColor: "#4A90D9",
   },
-
-  textoHora: {
-    fontSize: 13, color: "#888",
-    marginTop: 2
-  },
-  listaConteudo: {
-    paddingBottom: 30
-  },
-  textoVazio: {
-    textAlign: "center",
-    color: "#aaa",
-    marginTop: 10
-  },
-  viewCopo: {
-    alignItems: "center",
-    marginVertical: 20
-  },
-  resumoArea:
-  {
-    paddingHorizontal: 20, marginBottom: 16
-  },
-  totalTexto:
-  {
-    fontSize: 28,
+  textoCard: {
+    fontSize: 16,
     fontWeight: "bold",
-    color: "#4A90D9",
-    textAlign: "center"
+    color: "#333",
   },
-  metaTexto: {
-    textAlign: "center",
+  textoHora: {
+    fontSize: 13,
     color: "#888",
-    marginBottom: 10
+    marginTop: 2,
   },
-  barraFundo: {
-    height: 12,
-    backgroundColor: "#ddd",
-    borderRadius: 6,
-    overflow: "hidden"
-  },
-  barraProgresso: {
-    height: 12,
-    borderRadius: 6
-  },
-  metaAtingida: {
-    textAlign: "center",
-    color: "#27ae60",
-    marginTop: 8,
-    fontWeight: "bold"
-  },
-  cabecalhoLista: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 20,
-    alignItems: "center",
-    marginTop: 16
-  },
-  limparTexto: {
 
+
+ 
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+  },
+  modalConteudo: {
+    backgroundColor: "#fff",
+    width: "80%",
+    borderRadius: 15,
+    padding: 20,
+    alignItems: "center",
+  },
+  modalTitulo: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 20,
+    color: "#333",
+  },
+  botaoOpcao: {
+    flexDirection: "row",
+    backgroundColor: "#4A90D9",
+    width: "100%",
+    padding: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+  },
+  copoIcone: {
+    width: 40,
+    height: 30,
+    marginRight: 10,
+    tintColor: "#fff", 
+  },
+  botaoOpcaoTexto: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  botaoCancelar: {
+    marginTop: 10,
+    padding: 5,
+  },
+  textoCancelar: {
     color: "#cc0000",
-    fontSize: 13
+    fontSize: 16,
+    fontWeight: "600",
   },
 });
 

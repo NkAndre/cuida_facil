@@ -1,0 +1,25 @@
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: rebase (abort): returning to refs/heads/main
+[33mf575f13[m HEAD@{1}: commit (merge): tela remedio feita
+[33mc03eae8[m HEAD@{2}: rebase (continue): feat: ajuste cadastro
+[33me077daf[m HEAD@{3}: pull origin main --rebase (start): checkout e077daf574b5fb83ab85ba4a9d71a8716ec7c62f
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{4}: checkout: moving from feature/vacinas to main
+[33m9cc5f52[m[33m ([m[1;31morigin/feature/vacinas[m[33m, [m[1;32mfeature/vacinas[m[33m)[m HEAD@{5}: checkout: moving from main to feature/vacinas
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{6}: rebase (abort): returning to refs/heads/main
+[33me077daf[m HEAD@{7}: pull origin main --rebase (start): checkout e077daf574b5fb83ab85ba4a9d71a8716ec7c62f
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{8}: checkout: moving from feature/vacinas to main
+[33m9cc5f52[m[33m ([m[1;31morigin/feature/vacinas[m[33m, [m[1;32mfeature/vacinas[m[33m)[m HEAD@{9}: commit: Finalizando funcionalidade de vacinas
+[33me18a4df[m HEAD@{10}: commit: feat: header pronto
+[33m9cf7fc2[m HEAD@{11}: commit: fix: limpando estado de conflito
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{12}: checkout: moving from main to feature/vacinas
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{13}: checkout: moving from feature/home to main
+[33ma79b1c0[m[33m ([m[1;31morigin/feature/home[m[33m, [m[1;32mfeature/home[m[33m)[m HEAD@{14}: commit: feat: finaliza layout da home
+[33md1455b3[m HEAD@{15}: commit: feat: arrumando alguns details na home
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{16}: checkout: moving from main to feature/home
+[33mdf27d57[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{17}: commit: feat: ajuste cadastro
+[33m0a0f445[m HEAD@{18}: commit: feat:tela de login iniciou o dev
+[33m445b8c5[m HEAD@{19}: commit: feat:inicializado do prj
+[33mcbe8f20[m HEAD@{20}: commit: feat:depencias de navigator instaladas
+[33m65b44d2[m HEAD@{21}: pull origin main --allow-unrelated-histories: Merge made by the 'ort' strategy.
+[33mb814335[m HEAD@{22}: Branch: renamed refs/heads/master to refs/heads/main
+[33mb814335[m HEAD@{24}: commit: feat: estrutura do prj desenvolvido
+[33m04a85a3[m HEAD@{25}: commit (initial): Initial commit

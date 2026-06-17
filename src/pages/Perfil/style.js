@@ -29,11 +29,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  // ESTA É A CHAVE PARA CENTRALIZAR O CARD E O LOADING
   content: {
     flex: 1,
-    justifyContent: 'center', // Centraliza verticalmente no espaço que sobrou
-    alignItems: 'center',     // Centraliza horizontalmente
+    justifyContent: 'center', 
+    alignItems: 'center',    
     padding: 20,
   },
   card: {
@@ -52,7 +51,6 @@ export default StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     color: "#333",
-    marginBottom: 20,
     textAlign: "center",
   },
   infoArea: {
@@ -78,9 +76,54 @@ export default StyleSheet.create({
     borderRadius: 10,
     marginTop: 20,
     alignItems: "center",
+    justifyContent: "center",
   },
   buttonText: {
     color: "#FFF",
     fontWeight: "bold",
+    fontSize: 16,
+  },
+
+  // --- NOVOS ESTILOS ADICIONADOS PARA LIMPAR O CÓDIGO ---
+  logoHeader: {
+    width: 50,
+    height: 50,
+  },
+  iconSpace: {
+    marginRight: 15,
+  },
+  cardHeaderArea: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  valueInput: {
+    fontSize: 18,
+    color: "#333",
+    borderBottomWidth: 1,
+    borderColor: "#4A90E2",
+    paddingVertical: 2,
+    fontWeight: "500",
+  },
+  valueDesabilitado: {
+    color: "#999",
+  },
+  col: {
+    flex: 1,
+  },
+  colDataSpace: {
+    marginLeft: 20,
+  },
+  buttonSalvarVerde: {
+    backgroundColor: "#28a745",
+  },
+  buttonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonIconSpace: {
+    marginRight: 8,
   },
 });

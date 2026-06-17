@@ -9,6 +9,7 @@ import {
   Modal,
   FlatList,
   Alert,
+  Platform
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
@@ -22,6 +23,16 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Entypo from "@expo/vector-icons/Entypo"; 
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import * as Notifications from 'expo-notifications';
+import DateTimePicker from "@react-native-community/datetimepicker";
+
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+});
 
 export default function Remedios() {
   const navigation = useNavigation();
@@ -39,7 +50,36 @@ export default function Remedios() {
   const [modalSucessoVisible, setModalSucessoVisible] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // ─── Estados para data & hora 
+  const [dataNotificacao, setDataNotificacao] = useState(new Date());
+
+ 
+  const [pickerMode, setPickerMode] = useState(null);
+
+  
+  const [modalPickerVisible, setModalPickerVisible] = useState(false);
+
+
   const STORAGE_KEY = "@minhas_alergias";
+
+  useEffect(() => {
+    carregarDados();
+    solicitarPermissoes();
+    solicitarPermissaoNotificacao();
+  }, []);
+
+  //fuction soliciar permissao
+  const solicitarPermissaoNotificacao = async () => {
+    const { status: existingStatus } = await Notifications.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== "granted") {
+      const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== "granted") {
+      Alert.alert("Aviso", "As notificações estão desativadas. Você não receberá os lembretes.");
+    }
+  };
 
   const carregarDados = async () => {
     try {
@@ -52,6 +92,7 @@ export default function Remedios() {
     }
   };
 
+  //functiou salva os dados
   const salvarDados = async (novaLista) => {
     try {
       const jsonValue = JSON.stringify(novaLista);
@@ -61,10 +102,33 @@ export default function Remedios() {
     }
   };
 
-  useEffect(() => {
-    carregarDados();
-  }, []);
+  //funcao de agedar as notificacao
+  const agendarNotificacao = async (nome, dose) => {
+    if (dataNotificacao <= new Date()) {
+      Alert.alert("Aviso", "A data/hora selecionada já passou. A notificação não será agendada.");
+      return null;
+    }
 
+    try {
+      const idNotificacao = await Notifications.scheduleNotificationAsync({
+        content: {
+          title: `Hora do Remédio: ${nome}`,
+          body: `Está na hora de tomar sua dose de ${dose}.`,
+          sound: true,
+        },
+        trigger: {
+          type: Notifications.SchedulableTriggerInputTypes.DATE,
+          date: dataNotificacao.getTime(),
+        },
+      });
+      return idNotificacao;
+    } catch (error) {
+      console.log("Erro ao agendar notificação", error);
+      return null;
+    }
+  };
+
+  //function salva img permanente
   const salvarImagemPermanente = async (uriTemporaria) => {
     try {
       const nomeDoArquivo = `${Date.now()}.jpg`; 
@@ -99,13 +163,14 @@ export default function Remedios() {
     return true;
   };
 
+  //function tirar foto
   const tirarFoto = async () => {
     setModalVisible(false);
     const permissoes = await solicitarPermissoes();
     if (!permissoes) return;
 
     const resultado = await ImagePicker.launchCameraAsync({
-      mediaTypes:["images"],
+      mediaTypes: ["images"],
       allowsEditing: true,
       aspect: [1, 1],
       quality: 1,
@@ -135,6 +200,7 @@ export default function Remedios() {
     }
   };
 
+  //clica no btn e sai som
   async function handlePreVisualizarRemedio() {
     try {
       const { sound } = await Audio.Sound.createAsync(
@@ -153,8 +219,14 @@ export default function Remedios() {
     setModalConfirmarVisible(true);
   }
 
+
+  //fucntio de confirmar se vai querer salva
   async function handleConfirmarSalvar() {
     setModalConfirmarVisible(false);
+
+    const notificacaoId = await agendarNotificacao(nomeRemedio.trim(),
+     `${dosagem.trim()}
+      ${unidade.trim()}`);
 
     const novoRemedio = {
       id: Date.now().toString(),
@@ -162,6 +234,8 @@ export default function Remedios() {
       unidade: unidade.trim(),
       dosagem: dosagem.trim(),
       foto: imagemParaSalvar, 
+      notificacaoId: notificacaoId,
+      dataAlerta: dataNotificacao.toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" })
     };
 
     const novaLista = [...lista, novoRemedio];
@@ -175,17 +249,83 @@ export default function Remedios() {
     setDosagem("");
     setImagem(null);
     setImagemParaSalvar(null); 
+    setDataNotificacao(new Date());
 
     setTimeout(() => {
       setModalSucessoVisible(false);
     }, 2000);
   }
 
-  const handleDeletarRemedio = async (id) => {
-    const listaFiltrada = lista.filter(item => item.id !== id);
+  const handleDeletarRemedio = async (item) => {
+    if (item.notificacaoId) {
+      try {
+        await Notifications.cancelScheduledNotificationAsync(item.notificacaoId);
+      } catch (error) {
+        console.log("Erro ao cancelar notificação:", error);
+      }
+    }
+    const listaFiltrada = lista.filter(i => i.id !== item.id);
     setLista(listaFiltrada);
     await salvarDados(listaFiltrada);
   };
+
+  
+
+ 
+  const abrirDatePicker = () => {
+    setPickerMode("date");
+    if (Platform.OS === "ios") {
+      setModalPickerVisible(true);
+    }
+  };
+
+
+  const onChangeDateAndroid = (event, selectedDate) => {
+    setPickerMode(null); 
+    if (event.type === "dismissed" || !selectedDate) return;
+
+    const atual = new Date(dataNotificacao);
+    atual.setFullYear(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate());
+    setDataNotificacao(atual);
+
+
+    setPickerMode("time");
+  };
+
+  const onChangeTimeAndroid = (event, selectedTime) => {
+    setPickerMode(null); 
+    if (event.type === "dismissed" || !selectedTime) return;
+
+    const atual = new Date(dataNotificacao);
+    atual.setHours(selectedTime.getHours(), selectedTime.getMinutes(), 0);
+    setDataNotificacao(atual);
+  };
+
+  const onChangeIOS = (event, selectedValue) => {
+    if (!selectedValue) return;
+
+    if (pickerMode === "date") {
+      const atual = new Date(dataNotificacao);
+      atual.setFullYear(selectedValue.getFullYear(), selectedValue.getMonth(), selectedValue.getDate());
+      setDataNotificacao(atual);
+    } else {
+      const atual = new Date(dataNotificacao);
+      atual.setHours(selectedValue.getHours(), selectedValue.getMinutes(), 0);
+      setDataNotificacao(atual);
+    }
+  };
+
+  
+  const handleIOSPickerNext = () => {
+    if (pickerMode === "date") {
+      setPickerMode("time"); 
+    } else {
+      setModalPickerVisible(false);
+      setPickerMode(null);
+    }
+  };
+
+  
 
   return (
     <View style={styles.container}>
@@ -299,13 +439,105 @@ export default function Remedios() {
         />
       </View>
 
+      
+      <View style={styles.inputArea}>
+        <Pressable 
+          style={[styles.input, { justifyContent: 'center' }]} 
+          onPress={abrirDatePicker}
+        >
+          <Text style={{ color: '#333' }}>
+            🔔 Alerta: {dataNotificacao.toLocaleString("pt-BR", { dateStyle: "short", timeStyle: "short" })}
+          </Text>
+        </Pressable>
+      </View>
+
+     
+      {Platform.OS === "android" && pickerMode === "date" && (
+        <DateTimePicker
+          value={dataNotificacao}
+          mode="date"
+          display="default"
+          minimumDate={new Date()}
+          onChange={onChangeDateAndroid}
+        />
+      )}
+      {Platform.OS === "android" && pickerMode === "time" && (
+        <DateTimePicker
+          value={dataNotificacao}
+          mode="time"
+          is24Hour={true}
+          display="default"
+          onChange={onChangeTimeAndroid}
+        />
+      )}
+
+  
+      {Platform.OS === "ios" && (
+        <Modal
+          transparent={true}
+          visible={modalPickerVisible}
+          animationType="slide"
+          onRequestClose={() => { setModalPickerVisible(false); setPickerMode(null); }}
+        >
+          <View style={{
+            flex: 1,
+            justifyContent: 'flex-end',
+            backgroundColor: 'rgba(0,0,0,0.4)',
+          }}>
+            <View style={{
+              backgroundColor: '#fff',
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
+              paddingBottom: 30,
+            }}>
+              {/* Cabeçalho do modal */}
+              <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingHorizontal: 20,
+                paddingVertical: 14,
+                borderBottomWidth: 1,
+                borderBottomColor: '#eee',
+              }}>
+                <Pressable onPress={() => { setModalPickerVisible(false); setPickerMode(null); }}>
+                  <Text style={{ color: '#D9534F', fontSize: 16 }}>Cancelar</Text>
+                </Pressable>
+
+                <Text style={{ fontWeight: 'bold', fontSize: 16, color: '#333' }}>
+                  {pickerMode === "date" ? "Selecionar Data" : "Selecionar Hora"}
+                </Text>
+
+                <Pressable onPress={handleIOSPickerNext}>
+                  <Text style={{ color: '#185FA5', fontSize: 16, fontWeight: 'bold' }}>
+                    {pickerMode === "date" ? "Próximo" : "Confirmar"}
+                  </Text>
+                </Pressable>
+              </View>
+
+              {/* O picker em si */}
+              <DateTimePicker
+                value={dataNotificacao}
+                mode={pickerMode === "date" ? "date" : "time"}
+                display="spinner"
+                is24Hour={true}
+                minimumDate={pickerMode === "date" ? new Date() : undefined}
+                onChange={onChangeIOS}
+                style={{ height: 200 }}
+                locale="pt-BR"
+              />
+            </View>
+          </View>
+        </Modal>
+      )}
+
       <View style={styles.viewBotao}>
         <Pressable onPress={handlePreVisualizarRemedio} style={styles.botao}>
           <Text style={styles.botaoTexto}>Adicionar</Text>
         </Pressable>
       </View>
 
-      {/* MODAL 1: Confirmação */}
+    
       <Modal
         transparent={true}
         visible={modalConfirmarVisible}
@@ -352,7 +584,7 @@ export default function Remedios() {
         </View>
       </Modal>
 
-      {/* MODAL 2: Sucesso */}
+      
       <Modal transparent={true} visible={modalSucessoVisible} animationType="fade">
         <View style={styles.modalOverlay}>
           <View style={[styles.viewModal, styles.modalSucessoBox]}>
@@ -371,15 +603,17 @@ export default function Remedios() {
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 20 }}
         renderItem={({ item }) => (
           <View style={styles.cardRemedio}>
-            <Image 
-              source={item.foto ? { uri: item.foto } : require("../../../assets/remedioFoto2.png")} 
-              style={styles.cardRemedioImage} 
-            />
+            <Image source={item.foto ? { uri: item.foto } : require("../../../assets/remedioFoto2.png")} style={styles.cardRemedioImage} />
             <View style={styles.cardRemedioInfo}>
               <Text style={styles.cardRemedioNome}>{item.nome}</Text>
               <Text style={styles.cardRemedioDetalhes}>Dosagem: {item.dosagem} | Unid: {item.unidade}</Text>
+              {item.dataAlerta && (
+                <Text style={[styles.cardRemedioDetalhes, { color: '#185FA5', fontWeight: 'bold' }]}>
+                  ⏰ {item.dataAlerta}
+                </Text>
+              )}
             </View>
-            <Pressable onPress={() => handleDeletarRemedio(item.id)} style={styles.cardRemedioBtnDelete}>
+            <Pressable onPress={() => handleDeletarRemedio(item)} style={styles.cardRemedioBtnDelete}>
               <Feather name="trash-2" size={20} color="#D9534F" />
             </Pressable>
           </View>
