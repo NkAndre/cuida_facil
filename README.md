@@ -26,8 +26,7 @@ Aplicativo contém 19 Telas Atualmente.
 - 🚨 Informações Sobre Ubs mais próxima e contatos de emergência
 - ⚙️ Tela De Menu
 - 👤 Perfil, onde o usuario poderá ver suas informações pessoais, editar e exlcluir se desejar
-- 
-- 
+- Opçao de traduzir idioma para o o inglês
 
 ---
 
