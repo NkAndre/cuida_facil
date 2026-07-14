@@ -28,7 +28,7 @@ Aplicativo contém 19 Telas Atualmente.
 
 ---
 
-## 🎯 
+## Objetivo 🎯 
 
 Meu Objetivo é Oferecer uma solução prática para que usuários possam acompanhar sua saúde de forma organizada, armazenando informações importantes e incentivando hábitos saudáveis por meio de ferramentas de monitoramento e prevenção.
 
