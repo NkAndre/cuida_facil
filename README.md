@@ -56,3 +56,19 @@ Meu Objetivo é Oferecer uma solução prática para que usuários possam acompa
 
   <img src="https://github.com/user-attachments/assets/77cfe6cd-243f-4025-bb7a-29f54d50b39e" width="250"/>
 </p>
+
+
+## Como funciona
+
+git clone https://github.com/NkAndre/backendCuidaFacil.git
+cd backendCuidaFacil
+composer install
+copy .env.example .env
+
+Abra o .env e ajuste as informações do banco de dados:
+
+DB_DATABASE=db_cuidafacil
+
+php artisan key:generate
+
+php artisan serve
