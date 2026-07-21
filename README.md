@@ -21,14 +21,16 @@ Aplicativo contém 19 Telas Atualmente.
 - 🧘 Área de meditação e bem-estar
 - 🥗 Planejamento alimentar
 - 💡 Mensagens motivacionais dinânmicas com opção de compartilhamento
-- ## 🚧 Funcionalidades em desenvolvimento
-- 🚨 Tela de Emergência *(em desenvolvimento)*
 - 🚨 Informações Sobre Ubs mais próxima e contatos de emergência
 - ⚙️ Tela De Menu
 - 👤 Perfil, onde o usuario poderá ver suas informações pessoais, editar e exlcluir se desejar
 - Opçao de traduzir idioma para o o inglês
 
 ---
+
+- ## 🚧 Funcionalidades em desenvolvimento
+- 🚨 Tela de Emergência *(em desenvolvimento)*
+  ---
 
 ## Objetivo 🎯 
 
