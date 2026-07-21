@@ -58,17 +58,60 @@ Meu Objetivo é Oferecer uma solução prática para que usuários possam acompa
 </p>
 
 
-## Como funciona
+## 🚀 Como executar o projeto
 
+
+### 1. Clone o repositório
+
+```bash
 git clone https://github.com/NkAndre/backendCuidaFacil.git
 cd backendCuidaFacil
+```
+
+### 2. Instale as dependências
+
+```bash
 composer install
+```
+
+### 3. Configure o arquivo de ambiente
+
+Copie o arquivo de exemplo:
+
+```bash
 copy .env.example .env
+```
 
-Abra o .env e ajuste as informações do banco de dados:
+> No Linux ou macOS:
 
+```bash
+cp .env.example .env
+```
+
+### 4. Configure o banco de dados
+
+Abra o arquivo `.env` e altere as credenciais conforme sua configuração. Exemplo:
+
+```env
 DB_DATABASE=db_cuidafacil
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
+```
 
+### 5. Gere a chave da aplicação
+
+```bash
 php artisan key:generate
+```
 
+### 6. Inicie o servidor
+
+```bash
 php artisan serve
+```
+
+A aplicação estará disponível em:
+
+```
+http://127.0.0.1:8000
+```
