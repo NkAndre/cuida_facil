@@ -84,8 +84,12 @@ npm install
 npx expo start
 ```
 
-A aplicação estará disponível em:
+---
 
-```
-http://127.0.0.1:8000
-```
+## Backend 📱 
+
+A API está disponível em:
+
+**Backend:** https://github.com/NkAndre/backendCuidaFacil
+
+
