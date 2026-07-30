@@ -93,3 +93,11 @@ A API está disponível em:
 **Backend:** https://github.com/NkAndre/backendCuidaFacil
 
 
+
+## 👨‍💻 Autor
+
+**André Santos**
+
+- GitHub: https://github.com/NkAndre
+
+
